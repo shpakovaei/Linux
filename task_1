@@ -1,0 +1,11 @@
+import subprocess
+
+class Command():
+    @staticmethod
+    def func(linux_command="/nome/user/ex1.txt", text="result") -> object:
+        result = subprocess.run(linux_command, shell=True, stdout=subprocess.PIPE, encoding='utf-8')
+        return True if text in result.stdout and result.returncode == 0 else False
+
+if __name__ == '__main__':
+    ex1 = Command.func()
+    print(ex1)
